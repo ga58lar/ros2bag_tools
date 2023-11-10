@@ -1,3 +1,7 @@
+# Fork of ros2bag_tools
+Modification of image encoding in exporter to work properly with EDGAR and IAC.  
+Changed desired encoding to "bgr8".
+
 # Pipeline-Status
 
 | Workflow | Branch | Status |
