@@ -138,7 +138,7 @@ class ImageMsgWriter(ImageMsgWriterBase):
         ext: str,
         in_enc: Optional[str] = None
     ) -> AnyStr:
-        img = self.image_bridge.imgmsg_to_cv2(img_msg)
+        img = self.image_bridge.imgmsg_to_cv2(img_msg, desired_encoding="bgr8")
         in_enc = check_override_encoding(img_msg.encoding, in_enc, self.image_bridge)
         if out_enc and in_enc != out_enc:
             img = ImageMsgWriter.convert_encoding(img, in_enc, out_enc, demosaicing)
@@ -235,7 +235,7 @@ class CompressedImageMsgWriter(ImageMsgWriterBase):
         out_fmt = CompressedImageMsgWriter.get_ext_format(ext)
         decode = convert or in_fmt != out_fmt
         if decode:
-            img = self.image_bridge.compressed_imgmsg_to_cv2(img_msg)
+            img = self.image_bridge.compressed_imgmsg_to_cv2(img_msg, desired_encoding="bgr8")
         if convert:
             if not in_enc:
                 in_enc = CompressedImageMsgWriter.cv2_to_enc(img)

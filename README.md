@@ -1,3 +1,7 @@
+# Fork of ros2bag_tools
+Modification of image encoding in exporter to work properly with EDGAR and IAC.  
+Changed desired encoding to "bgr8".
+  
 # ROS2 bag tools
 
 ros2bag_tools adds verb extensions to the ros2bag cli.
